@@ -1,0 +1,563 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grandview Hotel - Luxury Stay Experience</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for professional look */
+        :root {
+            --primary-color: #d4af37;
+            --secondary-color: #2c3e50;
+            --accent-color: #34495e;
+            --text-light: #ecf0f1;
+            --eco-color: #27ae60;
+            --budget-color: #3498db;
+            --luxury-color: #8e44ad;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .section-title {
+            color: var(--secondary-color);
+            margin-bottom: 50px;
+            position: relative;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 3px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .category-card {
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .category-card .card-img-top {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+
+        .luxury-card {
+            background: linear-gradient(135deg, var(--luxury-color), #9b59b6);
+            color: white;
+        }
+
+        .eco-card {
+            background: linear-gradient(135deg, var(--eco-color), #2ecc71);
+            color: white;
+        }
+
+        .budget-card {
+            background: linear-gradient(135deg, var(--budget-color), #3498db);
+            color: white;
+        }
+
+        .business-card {
+            background: linear-gradient(135deg, var(--secondary-color), #34495e);
+            color: white;
+        }
+
+        .room-card {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .room-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .amenity-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .gallery-img {
+            height: 250px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background: var(--secondary-color);
+            color: var(--text-light);
+            padding: 50px 0 20px;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: #b8941f;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+
+        .offer-card {
+            background: linear-gradient(135deg, var(--primary-color), #f39c12);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .stats-section {
+            background: var(--secondary-color);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        .category-hero {
+            height: 60vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .luxury-hero {
+            background: linear-gradient(rgba(139, 69, 173, 0.7), rgba(139, 69, 173, 0.7)), url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        }
+
+        .eco-hero {
+            background: linear-gradient(rgba(39, 174, 96, 0.7), rgba(39, 174, 96, 0.7)), url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
+        }
+
+        .budget-hero {
+            background: linear-gradient(rgba(52, 152, 219, 0.7), rgba(52, 152, 219, 0.7)), url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80');
+        }
+
+        .business-hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 1000;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            color: white;
+            font-size: 1.2rem;
+            display: none;
+        }
+
+        .back-btn.show {
+            display: block;
+        }
+
+        .category-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            margin-top: 80px;
+        }
+
+        .category-btn {
+            background: white;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .category-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .category-btn.luxury:hover {
+            background: var(--luxury-color);
+            border-color: var(--luxury-color);
+        }
+
+        .category-btn.eco:hover {
+            background: var(--eco-color);
+            border-color: var(--eco-color);
+        }
+
+        .category-btn.budget:hover {
+            background: var(--budget-color);
+            border-color: var(--budget-color);
+        }
+
+        .category-btn.business:hover {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <button class="back-btn" id="backBtn" onclick="showMainPage()">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="showMainPage()">
+                <i class="fas fa-hotel"></i> Grandview Hotel
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showMainPage()">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="showCategoryPage('luxury')">Luxury Hotels</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="showCategoryPage('eco')">Eco Tourism</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="showCategoryPage('budget')">Budget Hotels</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="showCategoryPage('business')">Business Hotels</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="scrollToSection('amenities')">Amenities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="scrollToSection('gallery')">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="scrollToSection('about')">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="scrollToSection('contact')">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white px-3 ms-2" href="#" onclick="scrollToSection('booking')">Book Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN PAGE CONTENT -->
+    <div id="mainPage" class="page-content active">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h1 class="display-4 fw-bold mb-4">Welcome to Grandview Hotel</h1>
+                        <p class="lead mb-4">Experience luxury and comfort in the heart of the city. Your perfect stay awaits.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hotel Categories -->
+        <section class="category-nav">
+            <div class="container">
+                <h2 class="section-title">Explore Our Hotel Categories</h2>
+                <div class="text-center">
+                    <a href="#" class="category-btn luxury" onclick="showCategoryPage('luxury')">
+                        <i class="fas fa-crown"></i> Luxury Hotels
+                    </a>
+                    <a href="#" class="category-btn eco" onclick="showCategoryPage('eco')">
+                        <i class="fas fa-leaf"></i> Eco Tourism
+                    </a>
+                    <a href="#" class="category-btn budget" onclick="showCategoryPage('budget')">
+                        <i class="fas fa-wallet"></i> Budget Hotels
+                    </a>
+                    <a href="#" class="category-btn business" onclick="showCategoryPage('business')">
+                        <i class="fas fa-briefcase"></i> Business Hotels
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Cards -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="category-card luxury-card" onclick="showCategoryPage('luxury')">
+                            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="card-img-top" alt="Luxury Hotel">
+                            <div class="card-body text-center">
+                                <h3><i class="fas fa-crown"></i> Luxury Hotels</h3>
+                                <p>Experience the pinnacle of comfort and elegance with our premium luxury accommodations.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-spa"></i> World-class spa services</li>
+                                    <li><i class="fas fa-concierge-bell"></i> 24/7 concierge</li>
+                                    <li><i class="fas fa-utensils"></i> Michelin-starred dining</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="category-card eco-card" onclick="showCategoryPage('eco')">
+                            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" class="card-img-top" alt="Eco Tourism">
+                            <div class="card-body text-center">
+                                <h3><i class="fas fa-leaf"></i> Eco Tourism</h3>
+                                <p>Sustainable travel experiences that connect you with nature while preserving the environment.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-solar-panel"></i> Solar-powered facilities</li>
+                                    <li><i class="fas fa-recycle"></i> Zero-waste initiatives</li>
+                                    <li><i class="fas fa-tree"></i> Nature conservation programs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="category-card budget-card" onclick="showCategoryPage('budget')">
+                            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" class="card-img-top" alt="Budget Hotel">
+                            <div class="card-body text-center">
+                                <h3><i class="fas fa-wallet"></i> Budget Hotels</h3>
+                                <p>Comfortable and affordable accommodations without compromising on quality and service.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-wifi"></i> Free high-speed WiFi</li>
+                                    <li><i class="fas fa-coffee"></i> Complimentary breakfast</li>
+                                    <li><i class="fas fa-parking"></i> Free parking</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="category-card business-card" onclick="showCategoryPage('business')">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" class="card-img-top" alt="Business Hotel">
+                            <div class="card-body text-center">
+                                <h3><i class="fas fa-briefcase"></i> Business Hotels</h3>
+                                <p>Professional accommodations designed for the modern business traveler's needs.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-desktop"></i> Business center</li>
+                                    <li><i class="fas fa-video"></i> Conference facilities</li>
+                                    <li><i class="fas fa-clock"></i> Express check-in/out</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="stat-number">150+</div>
+                        <h5>Luxury Rooms</h5>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="stat-number">25</div>
+                        <h5>Years Experience</h5>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="stat-number">50K+</div>
+                        <h5>Happy Guests</h5>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="stat-number">15</div>
+                        <h5>Awards Won</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Amenities -->
+        <section id="amenities" class="py-5">
+            <div class="container">
+                <h2 class="section-title">Hotel Amenities</h2>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 text-center mb-4">
+                        <i class="fas fa-swimming-pool amenity-icon"></i>
+                        <h4>Rooftop Pool</h4>
+                        <p>Infinity pool with city views and poolside bar service.</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center mb-4">
+                        <i class="fas fa-dumbbell amenity-icon"></i>
+                        <h4>Fitness Center</h4>
+                        <p>24/7 state-of-the-art gym with personal trainers available.</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center mb-4">
+                        <i class="fas fa-utensils amenity-icon"></i>
+                        <h4>Fine Dining</h4>
+                        <p>Award-winning restaurant featuring international cuisine.</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center mb-4">
+                        <i class="fas fa-car amenity-icon"></i>
+                        <h4>Valet Parking</h4>
+                        <p>Complimentary valet parking for all hotel guests.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section id="gallery" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title">Gallery</h2>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="img-fluid gallery-img rounded" alt="Hotel Exterior">
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="img-fluid gallery-img rounded" alt="Restaurant">
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" class="img-fluid gallery-img rounded" alt="Pool Area">
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="img-fluid gallery-img rounded" alt="Spa">
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="img-fluid gallery-img rounded" alt="Lobby">
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="img-fluid gallery-img rounded" alt="Conference Room">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us -->
+        <section id="about" class="py-5">
+            <div class="container">
+                <h2 class="section-title">About Grandview Hotel</h2>
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2126&q=80" class="img-fluid rounded" alt="About Us">
+                    </div>
+                    <div class="col-lg-6">
+                        <h3>25 Years of Hospitality Excellence</h3>
+                        <p>Since 1999, Grandview Hotel has been the premier destination for luxury accommodation in the city. Our commitment to exceptional service and attention to detail has earned us numerous awards and the loyalty of guests from around the world.</p>
+                        <p>We offer four distinct categories of accommodations to meet every traveler's needs, from luxury suites to eco-friendly lodges and budget-friendly options.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="text-center">
+                            <i class="fas fa-phone amenity-icon"></i>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="text-center">
+                            <i class="fas fa-envelope amenity-icon"></i>
+                            <h4>Email</h4>
+                            <p>info@grandviewhotel.com</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="text-center">
+                            <i class="fas fa-map-marker-alt amenity-icon"></i>
+                            <h4>Address</h4>
+                            <p>123 Downtown Street<br>City Center, State 12345</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- LUXURY HOTELS PAGE -->
+    <div id="luxuryPage" class="page-content">
+        <section class="category-hero luxury-hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h1 class="display-4 fw-bold mb-4"><i class="fas fa-crown"></i> Luxury Hotels</h1>
+                        <p class="lead mb-4">Experience the pinnacle of comfort and elegance with our premium luxury accommodations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <h2 class="section-title">Luxury Room Options</h2>
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="card room-card h-100">
+                            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2127&q=80" class="card-img-top" alt="Presidential Suite" style="height: 250px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title">Presidential Suite</h5>
+                                <p class="card-text">Ultimate luxury with panoramic city views and exclusive amenities.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-bed"></i> King Size Bed</li>
+                                    <li><i
