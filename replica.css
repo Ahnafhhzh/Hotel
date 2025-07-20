@@ -1,0 +1,476 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: goldenrod;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand {
+  color: goldenrod;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.nav-links a,
+.dropbtn {
+  text-decoration: none;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 130%;
+  left: 0;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.dropdown-content a {
+  padding: 0.5rem 1rem;
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f5f5f5;
+}
+
+/* Toggle visible when class added */
+.dropdown-content.show {
+  display: flex;
+}
+
+a.book-btn {
+  background-color: goldenrod;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  line-height: 1;
+  border: none;
+}
+
+a.book-btn:hover {
+  background-color: #c4971d;
+  color: white;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+    display: none;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .book-btn {
+    display: none;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: none; /* Disable hover dropdown on mobile */
+  }
+
+  .dropdown .dropbtn::after {
+    content: ' ▼';
+  }
+
+  .dropdown .dropbtn:focus + .dropdown-content,
+  .dropdown-content:hover {
+    display: block;
+  }
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('image/photo-1566073771259-6a8506099945.jpg') no-repeat center center/cover;
+}
+
+.hero-container {
+  margin-left: 59px;
+  margin-right: 59px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  max-width: 1000px;
+  padding: 2rem;
+  z-index: 1;
+  font-size: 1.9rem;
+  line-height: 1.6;
+}
+
+.hero-container h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.hero-container p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.category-nav {
+  margin-top: 80px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.category{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 2rem;
+  text-decoration: none;
+}
+.cat-title {
+  display: inline-block;
+  position: relative;
+  color: #2c3e50; /* text color */
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.cat-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: 60px;        /* width of the underline */
+  height: 4px;        /* thickness */
+  background-color: goldenrod; /* gold-like underline color */
+  border-radius: 2px; /* rounded ends (optional) */
+}
+
+.cat-content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 2rem;
+}
+
+.cat-content a {
+  text-decoration: none;
+  color: goldenrod;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.cat-btn{
+  padding: 15px 30px;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid goldenrod;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.cat-btn:hover {
+  background-color: goldenrod;
+  color: white;
+}
+
+.col-md-4 {
+  margin-bottom: 24px;
+}
+
+.card{
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-9px);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-body {
+  padding: 16px;
+  text-align: center;
+  background-color: #8e44ad;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.card-body h5 {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+.card-body p {
+  font-size: 1rem;
+  color: white;
+}
+
+.card-body li {
+  text-decoration: none;
+  color: white;
+  list-style-type: none;
+}
+
+.stats-section {
+  background-color: #2c3e50;
+  padding: 60px 0;
+}
+
+.container{
+  max-width: 1200px;
+  margin: 0px 70px;
+  padding: 0 20px;
+}
+
+.row-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.stat{
+  margin-bottom: 24px;
+  padding: 0px 12px; 
+}
+
+.stat-no{
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: goldenrod;
+  margin-bottom: 10px;
+}
+
+.row-stats h5 {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.amenities-section {
+  padding: 48px 0;
+  text-align: center;
+}
+
+.amenities-title {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  
+}
+
+.amenities-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: 60px;        /* width of the underline */
+  height: 4px;        /* thickness */
+  background-color: goldenrod; /* gold-like underline color */
+  border-radius: 2px; /* rounded ends (optional) */
+}
+
+.amenity-icon {
+  margin-bottom: 20px;
+  font-size: 3rem;
+  color: goldenrod;
+}
+
+.amenity-card h5 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #333;
+}
+
+.gallery-section {
+  padding: 60px 0;
+  text-align: center;
+  background-color: rgb(248, 249, 250);
+  position: relative;
+}
+
+.gallery-title {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.gallery-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: 60px;        /* width of the underline */
+  height: 4px;        /* thickness */
+  background-color: goldenrod; /* gold-like underline color */
+  border-radius: 2px; /* rounded ends (optional) */
+}
+
+.gallery-item{
+  width: calc(25% - 20px);
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.about-section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.about-title {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.about-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: 60px;        /* width of the underline */
+  height: 4px;        /* thickness */
+  background-color: goldenrod; /* gold-like underline color */
+  border-radius: 2px; /* rounded ends (optional) */
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-content img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.contact-section {
+  padding: 60px 0;
+  text-align: center;
+  background-color: rgb(248, 249, 250);
+}
+
+.contact-title {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.contact-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: 60px;        /* width of the underline */
+  height: 4px;        /* thickness */
+  background-color: goldenrod; /* gold-like underline color */
+  border-radius: 2px; /* rounded ends (optional) */
+}
