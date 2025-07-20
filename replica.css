@@ -293,6 +293,7 @@ a.book-btn:hover {
 .card{
   overflow: hidden;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 .card:hover {
   transform: translateY(-9px);
@@ -457,6 +458,7 @@ a.book-btn:hover {
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .gallery-item:hover {
