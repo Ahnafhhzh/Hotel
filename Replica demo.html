@@ -10,12 +10,13 @@
   <script src="https://kit.fontawesome.com/91619c6df2.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="navbar fixed-top ">
-        <div class="logo"><i class="fas fa-hotel"></i> <a class="brand" href="#">Grandview Hotel</a></div>
-        
-        <button class="hamburger" id="hamburger">&#9776;</button>
-
-        <nav class="nav-links" id="navMenu">
+    <header class="navbar fixed-top d-flex align-items-center justify-content-between px-4" style="background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+        <div class="logo d-flex align-items-center" style="gap: 10px;">
+            <span style="font-size:2rem; color:#4B2E09;"><i class="fas fa-hotel"></i></span>
+            <a class="brand fw-bold fs-4" href="#" style="color:#4B2E09; text-decoration:none; letter-spacing:1px;">Grandview Hotel</a>
+        </div>
+        <button class="hamburger ms-auto" id="hamburger" style="font-size:1.5rem; background:none; border:none; color:#222;">&#9776;</button>
+        <nav class="nav-links d-flex align-items-center" id="navMenu">
             <a href="#">Home</a>
             <div class="dropdown">
                 <button class="dropbtn" id="dropdownToggle">Categories▼</button>
@@ -35,11 +36,12 @@
     <!--Main Content here-->
     <!--Hero section-->
     <section>        
-        <div class="hero">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1>Welcome to Grandview Hotel</h1>
-                    <p>Your luxury escape awaits</p>
+        <div class="hero position-relative" style="height: 700px; background: url('image/photo-1566073771259-6a8506099945.jpg') center center/cover no-repeat; background-size: cover; background-repeat: no-repeat; image-rendering: crisp-edges;">
+            <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100" style="background: rgba(75,46,9,0.6); z-index:1;"></div>
+            <div class="hero-container d-flex flex-column justify-content-center align-items-start position-relative" style="height: 100%; z-index:2; padding-left: 7vw;">
+                <div class="hero-content w-100">
+                    <h1 style="font-size:3rem; font-weight:700; color:#fff; letter-spacing:2px; width:100%; text-align:left;">Welcome to Grandview Hotel</h1>
+                    <p style="font-size:1.3rem; color:#fff; width:100%; text-align:center; margin-left:-70px;">Your luxury escape awaits</p>
                 </div>
             </div>
         </div>

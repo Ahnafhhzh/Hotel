@@ -257,33 +257,33 @@ a.book-btn:hover {
 }
 
 .solo-btn:hover {
-  background-color: #3498db;
-  border-color: #3498db;
+  background-color: #9c7953;
+  border-color: #9c7953;
 }
 
 .couple-btn:hover {
-  background-color: #e74c3c;
-  border-color: #e74c3c;
+  background-color: #d0a76d;
+  border-color: #d0a76d;
 }
 
 .family-btn:hover {
-  background-color: #2ecc71;
-  border-color: #2ecc71;
+   background-color: #bc9752;
+  border-color: #bc9752;
 }
 
 .luxury-btn:hover {
-  background-color: #8e44ad;
-  border-color: #8e44ad;
+  background-color: #bb8b4d;
+  border-color: #bb8b4d;
 }
 
 .budget-btn:hover {
-  background-color: #f39c12;
-  border-color: #f39c12;
+  background-color: #e2b880;
+  border-color: #e2b880;
 }
 
 .eco-btn:hover {
-  background-color: #27ae60;
-  border-color: #27ae60;
+  background-color: #b0763c;
+  border-color: #b0763c;
 }
 
 .col-md-4 {
@@ -315,27 +315,33 @@ a.book-btn:hover {
 }
 
 .solo {
-  background-color: #3498db;
+  background-color: #9c7953;
+  color: #000000;
 }
 
 .couple {
-  background-color: #e74c3c;
+  background-color: #d0a76d;
+  color: #000000;
 }
 
 .family {
-  background-color: #2ecc71;
+  background-color: #bc9752;
+  color: #000000;
 }
 
 .luxury {
-  background-color: #8e44ad;
+  background-color: #bb8b4d;
+  color: #000000;
 }
 
 .budget {
-  background-color: #f39c12;
+  background-color: #e2b880;
+  color: #000000;
 }
 
 .eco {
-  background-color: #27ae60;
+  background-color: #b0763c;
+  color: #000000;
 }
 
 .card-body h5 {
