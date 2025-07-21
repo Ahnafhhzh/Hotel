@@ -15,8 +15,9 @@ body {
   z-index: 1000;
   display: flex;
   justify-content: space-between;
+  background-color: #5c7080; /* greyish blue */
+  padding: 1rem 2rem;
   align-items: center;
-  background: white;
   padding: 1rem 2rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -235,6 +236,7 @@ a.book-btn:hover {
   font-size: 1.2rem;
   margin-bottom: 2rem;
   font-weight: 300;
+  display:center;
 }
 
 .category-nav {
@@ -469,8 +471,9 @@ a.book-btn:hover {
 
 .amenity-icon {
   margin-bottom: 20px;
-  font-size: 3rem;
-  color: goldenrod;
+  font-size: 7rem;
+  color: rgb(220, 172, 50);
+  size: 200px;
 }
 
 .amenity-card h5 {
@@ -480,15 +483,16 @@ a.book-btn:hover {
 }
 
 .gallery-section {
-  padding: 60px 0;
+  padding: 57px 0;
   text-align: center;
-  background-color: rgb(248, 249, 250);
+  background-color: rgb(21, 43, 65);
   position: relative;
 }
 
 .gallery-title {
   margin-bottom: 40px;
   position: relative;
+  color: white
 }
 
 .gallery-title::after {
@@ -531,13 +535,13 @@ a.book-btn:hover {
 }
 
 .gallery-item {
-  flex: 1 1 calc(25% - 2.5rem); /* 4 items per row on large screens */
-  max-width: calc(25% - 20px);
-  margin: 0;
+  flex: 1 1 calc(100% - 7rem); /* 4 items per row on large screens */
+  max-width: calc(30% - 90px);
+  margin: 15px;
   border-radius: 200px;
   gap: 100px;
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
   cursor: pointer;
 }
 
@@ -556,6 +560,7 @@ a.book-btn:hover {
 .about-title {
   margin-bottom: 40px;
   position: relative;
+  color: white;
 }
 
 .about-title::after {
@@ -574,6 +579,7 @@ a.book-btn:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white
 }
 
 .about-content img {
