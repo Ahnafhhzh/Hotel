@@ -20,7 +20,52 @@ body {
   padding: 1rem 2rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+/* Ensure nav-links are hidden on small screens by default */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 60px; /* below navbar */
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 9999;
+  }
 
+  .nav-links.show {
+    max-height: 300px; /* enough to show all links */
+  }
+
+  .nav-links a {
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  a.book-btn {
+    display: none;
+  }
+  
+  /* Dropdown toggle inside mobile nav */
+  .dropdown-content {
+    position: relative;
+    top: 0;
+    box-shadow: none;
+    flex-direction: column;
+    display: none;
+  }
+  
+  .dropdown-content.show {
+    display: flex;
+  }
+}
 .logo {
   font-weight: 700;
   font-size: 1.8rem;
